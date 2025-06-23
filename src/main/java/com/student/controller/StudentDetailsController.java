@@ -17,6 +17,4 @@ public class StudentDetailsController {
 	public String greet() {
 		return greet+" "+"i am"+" "+myName;
 	}
-	
-	
 }
