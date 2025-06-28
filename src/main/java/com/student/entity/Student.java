@@ -10,21 +10,14 @@ import jakarta.persistence.Table;
 @Table(name = "student")
 public class Student {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String firstName;
-
 	private String lastName;
-
 	private Integer age;
-
 	private Boolean result;
-
 	private String email;
-
 	private String gender;
 
 	public Long getId() {

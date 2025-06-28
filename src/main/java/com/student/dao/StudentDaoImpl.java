@@ -24,28 +24,26 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	@Transactional
 	public void save(Student student) {
-
 		entityManager.persist(student);
-		
-		System.out.println("Saved the student with Id: "+student.getId());
+		System.out.println("Saved the student with Id: " + student.getId());
 
 	}
 
 	@Override
 	public Student find(Long id) {
-		return entityManager.find(Student.class,id);
-		
+		return entityManager.find(Student.class, id);
+
 	}
 
 	@Override
 	public List<Student> findAll() {
-		TypedQuery<Student> theQuery=entityManager.createQuery("From Student order by lastName",Student.class);
+		TypedQuery<Student> theQuery = entityManager.createQuery("From Student order by lastName", Student.class);
 		return theQuery.getResultList();
 	}
 
 	@Override
 	public List<Student> findByLastName(String lastName) {
-		TypedQuery<Student> theQuery=entityManager.createQuery("From Student WHERE lastName=:theData",Student.class);
+		TypedQuery<Student> theQuery = entityManager.createQuery("From Student WHERE lastName=:theData", Student.class);
 		theQuery.setParameter("theData", lastName);
 		return theQuery.getResultList();
 	}
@@ -54,13 +52,13 @@ public class StudentDaoImpl implements StudentDao {
 	@Transactional
 	public void update(Student student) {
 		entityManager.merge(student);
-		
+
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		Student student=entityManager.find(Student.class,id);
+		Student student = entityManager.find(Student.class, id);
 		entityManager.remove(student);
 	}
 }

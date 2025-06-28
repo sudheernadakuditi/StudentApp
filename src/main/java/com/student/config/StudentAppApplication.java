@@ -31,60 +31,58 @@ public class StudentAppApplication {
 //			queryForFindByLastName(studentDao);
 //			updateStudent(studentDao);
 //			deleteStudent(studentDao);
-			
-			
 		};
-
 	}
-	
+
 	private void findAll(StudentDao studentDao) {
-		List<Student> list=studentDao.findAll();
-		for(Student student:list) {
+		List<Student> list = studentDao.findAll();
+		for (Student student : list) {
 			System.out.println(student);
 		}
-		
+
 	}
 
 	private void deleteStudent(StudentDao studentDao) {
 		studentDao.delete(5L);
 		System.out.println("deleted the student with id : 5");
-		
+
 	}
 
 	private void updateStudent(StudentDao studentDao) {
-		//find the student with id
-		Student student=studentDao.find(2L);
-		System.out.println("found the student with id :"+student.getId());
-		
-		//set the lastName
+		// find the student with id
+		Student student = studentDao.find(2L);
+		System.out.println("found the student with id :" + student.getId());
+
+		// set the lastName
 		System.out.println("Updating the student last name to stupendous...");
 		student.setLastName("Stupendous");
-		
-		//execute update
+
+		// execute update
 		studentDao.update(student);
-		
-		//print the updated student
-		System.out.println("Updated student :"+student);
-		
+
+		// print the updated student
+		System.out.println("Updated student :" + student);
+
 	}
 
 	private Student findById(StudentDao studentDao) {
 		return studentDao.find(2L);
 	}
-	
-	private void queryForFindByLastName(StudentDao studentDao){
-		List<Student>list= studentDao.findByLastName("Nadakuditi");
-		for(Student student:list) {
+
+	private void queryForFindByLastName(StudentDao studentDao) {
+		List<Student> list = studentDao.findByLastName("Nadakuditi");
+		for (Student student : list) {
 			System.out.println(student);
 		}
 	}
-	
+
 	private void queryForStudents(StudentDao studentDao) {
-		List<Student> studentList=studentDao.findAll();
-		for(Student student:studentList) {
+		List<Student> studentList = studentDao.findAll();
+		for (Student student : studentList) {
 			System.out.println(student);
 		}
 	}
+
 	public void createStudent(StudentDao studentDao) {
 
 		System.out.println("Creating new student object...");
@@ -96,9 +94,9 @@ public class StudentAppApplication {
 		student1.setResult(true);
 		student1.setEmail("sudheer@example.com");
 		student1.setGender("Male");
-		
+
 		studentDao.save(student1);
-		
+
 		Student student2 = new Student();
 		student2.setFirstName("Anjali");
 		student2.setLastName("Sharma");
@@ -116,7 +114,7 @@ public class StudentAppApplication {
 		student3.setEmail("ravi.teja@example.com");
 		student3.setGender("Male");
 		studentDao.save(student3);
-		
+
 		Student student4 = new Student();
 		student4.setFirstName("Sneha");
 		student4.setLastName("Reddy");
@@ -133,6 +131,6 @@ public class StudentAppApplication {
 		student5.setResult(false);
 		student5.setEmail("priya.verma@example.com");
 		student5.setGender("Female");
-		studentDao.save(student5	);
+		studentDao.save(student5);
 	}
 }
